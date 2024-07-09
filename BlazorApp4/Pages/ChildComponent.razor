@@ -1,0 +1,30 @@
+﻿@page "/parent/child"
+
+<h3>Child Component</h3>
+<p>Message from Child: @ChildMessage</p>
+
+
+<p> hi:@ParentMessage</p>
+<p> j:@Parent</p>
+
+<CascadingValue Value="ChildMessage" Name="three">
+    <GrandChildComponent></GrandChildComponent>
+    @*<GrandChildComponent />*@
+</CascadingValue>
+
+@code {
+    [CascadingParameter(Name ="one")]
+    public string ParentMessage { get; set; }
+
+    [CascadingParameter(Name = "two")]
+    public string Parent { get; set; }
+
+    [CascadingParameter(Name = "three")]
+    @* public string ChildMessage => $"{ParentMessage} and *@
+    public string ChildMessage { get; set; } = "hello from child";
+
+}
+
+
+
+

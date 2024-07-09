@@ -1,0 +1,27 @@
+﻿@page "/parent"
+@using System.Collections.Generic
+
+<h3>Parent Component</h3>
+<p>Message from Parent: @ParentMessage</p>
+
+
+
+<CascadingValue Value="ParentMessage" Name="one">
+
+    <CascadingValue Value="Parent" Name="two">
+
+    <ChildComponent></ChildComponent>
+  @** <ChildComponent />*@
+</CascadingValue>
+
+</CascadingValue>
+
+
+
+
+@code {
+    public string ParentMessage{ get; set; } = "Hello from Parent!";
+
+    public string Parent { get; set; } = "Hello ";
+    
+}
